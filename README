@@ -1,10 +1,10 @@
 HOW TO RUN
 
 1. Download Node.js https://nodejs.org/en/download/
-2. open terminal check installation ('node -v') and ('npm -v')
+2. open terminal check installation ('node -v') and or ('npm -v') press enter
 
 ---
 
 3. Clone Repo through Github desktop
-4. Open a terminal on that folder containing (cd 'foldername')
-5. run program ('npm start')
+4. Open a terminal on that folder containing the cloned repo, type (cd 'foldername') press enter
+5. run program ('npm start') press enter
