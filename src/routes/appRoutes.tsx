@@ -5,10 +5,15 @@ import Client from '../pages/client/Client';
 import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
 import DefaultPage from '../pages/dashboard/DefaultPage';
 import HomePage from "../pages/home/HomePage";
+import LoginPage from '../pages/home/LoginPage';
 import Workout from '../pages/workout/Workout';
 import { RouteType } from "./config";
 
 const appRoutes: RouteType[] = [
+  {path: '/home',
+element: <LoginPage />,
+state: 'login'
+},
   {
     index: true,
     element: <HomePage />,
