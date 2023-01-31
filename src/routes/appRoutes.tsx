@@ -6,6 +6,7 @@ import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
 import Workout from '../pages/workout/Workout';
 import { RouteType } from "./config";
 
+
 const appRoutes: RouteType[] = [
   {
     path: '/dashboard',
