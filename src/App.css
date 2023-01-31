@@ -1,0 +1,9 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.container_default {
+    background: blue;
+    padding: 16px;
+    border-radius: 8px;
+}

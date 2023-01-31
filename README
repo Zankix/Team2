@@ -7,4 +7,5 @@ HOW TO RUN
 
 3. Clone Repo through Github desktop
 4. Open a terminal on that folder containing (cd 'foldername')
-5. run program ('npm start')
+5. run ('npm install)
+6. run program ('npm start')
