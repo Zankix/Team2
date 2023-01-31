@@ -13,6 +13,7 @@ const LoginPage = () => {
     event.preventDefault();
     console.log('Email: ', email);
     console.log('Password: ', password);
+    
   };
 
   return (
