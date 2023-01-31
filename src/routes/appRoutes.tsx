@@ -6,11 +6,12 @@ import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
 import DefaultPage from '../pages/dashboard/DefaultPage';
 import HomePage from "../pages/home/HomePage";
 import LoginPage from '../pages/home/LoginPage';
+import Team from '../pages/team/Team';
 import Workout from '../pages/workout/Workout';
 import { RouteType } from "./config";
 
 const appRoutes: RouteType[] = [
-  {path: '/home',
+{path: '/home',
 element: <LoginPage />,
 state: 'login'
 },
@@ -53,6 +54,15 @@ state: 'login'
     state: 'client',
     sidebarProps: {
       displayText: 'Manage Clients',
+      icon: <PeopleAltOutlinedIcon/>
+    }
+  },
+  {
+    path: '/team',
+    element: <Team />,
+    state: 'team',
+    sidebarProps: {
+      displayText: 'Manage Teams',
       icon: <PeopleAltOutlinedIcon/>
     }
   }

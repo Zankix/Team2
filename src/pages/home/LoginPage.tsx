@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent } from 'react';
+import React, { useState} from 'react';
 
 // A functional component to create the login page
 const LoginPage = () => {
@@ -13,9 +13,7 @@ const LoginPage = () => {
     event.preventDefault();
     console.log('Email: ', email);
     console.log('Password: ', password);
-    
   };
-
   return (
     <div>
       <h1>Login Page</h1>
