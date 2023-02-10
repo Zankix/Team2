@@ -8,16 +8,13 @@ const Signupform = () => {
   return (
     <form onSubmit="signuphandler" name="signup">
         <h1>Sign up</h1>
-        <div>
-          <label>Enter First Name: <input type="text" /> </label>
-          <label>Enter Last Name: <input type="text" /> </label>
-        </div>
+              
+        <label>Enter First Name: <input type="text" /> </label>
+        <label>Enter Last Name: <input type="text" /> </label>
         
-        <label>Enter Email:</label>
-          <input type="text"></input>
+        <label>Enter Email:<input type="text" /> </label> 
         <label>Enter Date of Birth: <input type="text" /> </label>
-        <label>Enter Address:</label>
-         <input type="text"></input>
+        <label>Enter Address:<input type="text"/> </label>
         <label>Enter Phone Number: <input type="text" /> </label>
         
         {/* login information */}
