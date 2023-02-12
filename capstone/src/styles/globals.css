@@ -2,28 +2,47 @@
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-  }
+  } 
 }
 body {
   max-width: 100vw;
   overflow-x: hidden;
 }
 form[name=signup] {
-  margin: 0 auto;
-  width: 400px;
+  background-color: rgb(138, 126, 109);
+  margin: 50px auto;
+  max-width: 500px ;
+  max-height: 600px ;
   text-align: center;
   box-sizing: border-box;
-  padding: auto;
+  padding: 12px 20px;
   border-radius: 1rem;
-  display: grid;
+  gap: 2rem;
+}
+form[name=login] {
+  background-color: rgb(138, 126, 109);
+  margin: 50px auto;
+  max-width: 500px ;
+  max-height: 600px ;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  border-radius: 1rem;
   gap: 2rem;
 }
 input[type=text] {
   margin: 3px 0;
-  width: 30%;
+  width: 70%;
   box-sizing: border-box;
   border: none;
-  /* border-bottom: 1px solid plum; */
-  /* border: 3px solid purple; */
-  border-radius: 2px;
+  border-radius: 10px;
+  padding: 12px 20px;
+}
+input[type=password] {
+  margin: 3px 0;
+  width: 70%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
 }
