@@ -1,6 +1,6 @@
 # Team2
 
-version 0.2 of FIT
+version 0.4 of FIT
 
 version notes:
 Version 0.2 utilizes Next.JS rather than React
