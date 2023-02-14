@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 //form for sign up
-//will add this user to the database and the ability to login
 const viewpassword =() => {
     var x = document.getElementById('passinput1');
     var y = document.getElementById('passinput2');
