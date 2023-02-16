@@ -55,7 +55,7 @@ export default function Signupform(){
   return (
     <div>
       <NavBar></NavBar>
-        <div>
+        <div className='signup'>
           <h1>Sign up For A FIT Account</h1>
           {/* sign up infromation added to the database*/}
           <input type='text' name='firstname' placeholder='Enter First Name' onChange={e => setfirstname(e.target.value)} id='firstnameinput'/>
