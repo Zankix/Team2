@@ -2,8 +2,9 @@
 version 0.4 of FIT
 
 version notes:
-Version 0.2 utilizes Next.JS rather than React
+- Version 0.4 utilizes Next.JS rather than React
 since Next uses less code than React.
+- PocketBase is used as the database
 
 Follow Instructions to run application
 
@@ -12,8 +13,13 @@ If you do not have this version download from terminal (main system terminal)
 using (nvm install 19.5.0)
 
 1. Clone repo to through Github Desktop
-2. Open terminal and enter into capstone folder using (cd capstone) command
-3. Install required packages using (npm install) command
+2. Open terminal and enter into web folder using (cd web) command
+3. Install required packages using (npm i) command
    - this will install all packages that are being used in this applicattion
-4. Run application using (npm run dev) command
+4. Run web server using (npm run dev) command
 5. Open browser and type [http://localhost:3000/]
+
+6. open another terminal 
+7. cd into pocketbase folder (cd pb)
+8. Run pocketbase server (./pocketbase serve)
+9. click on the link in terminal with ADMIN UI
