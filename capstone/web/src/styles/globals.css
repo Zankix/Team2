@@ -5,6 +5,7 @@
   } 
 }
 body {
+  font-family: "verdana", sans-serif;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -20,6 +21,17 @@ div[name=signup] {
   gap: 2rem;
 }
 div[name=login] {
+  background-color: rgb(138, 126, 109);
+  margin: 50px auto;
+  max-width: 500px ;
+  max-height: 600px ;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  border-radius: 1rem;
+  gap: 2rem;
+}
+div[name=addclient] {
   background-color: rgb(138, 126, 109);
   margin: 50px auto;
   max-width: 500px ;
@@ -46,3 +58,31 @@ input[type=password] {
   border-radius: 10px;
   padding: 12px 20px;
 }
+custombox{
+  display:inline-block;
+  width:30px;
+  height:30px;
+  background-color:#ccc;
+  border:1px solid #ff0000;
+}
+.topbar {
+  background-color: #333;
+  overflow: hidden;
+}
+.topbar a {
+  float: left;
+  color: whitesmoke;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topbar a:hover{
+  background-color: #ddd;
+  color: black;
+}
+.topbar a.active {
+  background-color: red;
+  color: green;
+}
+

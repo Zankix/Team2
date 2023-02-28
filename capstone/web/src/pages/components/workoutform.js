@@ -1,12 +1,12 @@
 import React from 'react'
-
+import Topbar from './pagecomponents/Topbar';
+import { Link } from 'react-router-dom';
 function workoutform() {
   return (
-    <form onSubmit="workouthandler">
-        <label>Enter Workout Name: <input type="text" /> </label>
-        <label>Enter Description: <input type="text" /> </label>
-        
-    </form>
+    <div>
+      <Topbar></Topbar>
+      
+    </div>
   )
 }
 
