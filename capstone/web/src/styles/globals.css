@@ -31,9 +31,10 @@ div[name=signup] {
 div[name=home] {
   background-color: rgba(255, 255, 255, 0.881);
   color: #32cd32;
+  text-shadow: 1px 1px 2px rgb(255, 247, 0);
   font-size: x-large;
   margin: 50px auto;
-  max-width: 500px ;
+  max-width: 750px ;
   max-height: auto ;
   text-align: center;
   box-sizing: border-box;
@@ -70,12 +71,30 @@ justify-content:space-evenly;
 img{
  width: 50%;
 }
+div [name = my-link] {
+  text-decoration: none;
+  color: inherit;
+  text-shadow: 1px 1px 2px black;
+}
+div [name = start-link]{
+  text-decoration-line: none;
+  color:#0ea3ff;
+  text-shadow: 3px 3px 3px rgb(255, 255, 255);
+  font-size: 50px;
+  font-weight: bolder;
+}
+header {
+  background-color: black;
+  border-radius: 50px;
+  border: 3px solid gold;
+}
 button {
   background-color: #32cd32;
   color: black;
-  border: white;
+  border: 2px solid white;
   text-align: center;
-  padding: 1%;
+  font-weight: bold;
+  padding: 5px 5px;
   display: inline;
   font-size: 20px;
   cursor: pointer;

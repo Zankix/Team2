@@ -4,10 +4,9 @@ import Link from "next/link"
 function NavBar() {
   return (
     <div><div name = 'navbar'>
-        <Link href="../components/Loginform"><h1>LOGIN</h1></Link>
-        <Link href="../components/Signupform"><h1>SIGNUP</h1></Link>
-        <Link href='/'><h1>HOME</h1></Link>
-        
+      <Link name = 'my-link' href='/'><h1>HOME</h1></Link>
+        <Link name = 'my-link' href="../components/Loginform"><h1>LOGIN</h1></Link>
+        <Link name = 'my-link' href="../components/Signupform"><h1>SIGNUP</h1></Link>
     </div></div>
   )
 }

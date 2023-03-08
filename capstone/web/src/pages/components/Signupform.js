@@ -78,7 +78,6 @@ export default function Signupform(){
           <br></br>
           <button onClick={adduser}>Sign up</button>
           {/* <input type='submit' name='Sign Up' onClick={signuphandler}></input> */}
-      
       <br></br>
         <Link href="../components/Loginform"><label>Already have an account?</label></Link>
         </div>
