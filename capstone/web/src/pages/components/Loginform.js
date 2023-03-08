@@ -3,6 +3,9 @@ import NavBar from './NavBar';
 import { useState } from 'react';
 import PocketBase from 'pocketbase';
 import { useRouter } from 'next/router';
+import Link from "next/link"
+
+
 
 const viewpassword =() => {
   var x = document.getElementById('passinput');
@@ -38,7 +41,7 @@ export default function Loginform(){
   return (
     <div>
       <NavBar></NavBar> 
-        <div className='login'>
+        <div name='signup'>
           <h1>Login to FIT</h1>
           {/* login information */}
           <input type='text' name='loginusername' placeholder='Username' onChange={e => getloginusername(e.target.value)} id='usernameinput'/>
@@ -47,8 +50,9 @@ export default function Loginform(){
           <input type='checkbox' onClick={()=>viewpassword()}/>Show Password 
           <br></br>
           <button onClick={login}>Login</button>
+          <br></br>
+        <Link href="../components/Signupform"><label>Don't have an account?</label></Link>
         </div>
-        <label>Don't have an account?</label>
     </div>
   )
 };

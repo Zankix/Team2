@@ -3,6 +3,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import NavBar from './NavBar';
 import PocketBase from 'pocketbase';
 import { useRouter } from 'next/router';
+import Link from "next/link"
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 //form for sign up
@@ -53,6 +54,7 @@ export default function Signupform(){
   //await pb.collection('user').requestVerification(semail);
   }
   return (
+    <body>
     <div>
       <NavBar></NavBar>
         <div name='signup'>
@@ -76,11 +78,13 @@ export default function Signupform(){
           <br></br>
           <button onClick={adduser}>Sign up</button>
           {/* <input type='submit' name='Sign Up' onClick={signuphandler}></input> */}
+      
+      <br></br>
+        <Link href="../components/Loginform"><label>Already have an account?</label></Link>
         </div>
-          <label>Already have an account?</label>
+          
     </div>
-    
-    
+    </body>
   )
 };
 // const root = ReactDom.createRoot(document.getElementById('root'));

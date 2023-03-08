@@ -4,9 +4,11 @@ import NavBar from './components/NavBar'
 function Home() {
   return (
     <div>
-      <h1>home page</h1>
       <NavBar></NavBar>
-    </div>
+      <div name = 'home'>
+        <img src="fitt.png"></img>
+      <h1>FIT HOME</h1>
+    </div></div>
     
   )
 }
