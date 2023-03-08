@@ -54,11 +54,12 @@ export default function Signupform(){
   //await pb.collection('user').requestVerification(semail);
   }
   return (
+    <html>
     <body>
     <div>
       <NavBar></NavBar>
         <div name='signup'>
-          <h1>Sign up For A FIT Account</h1>
+          <h1>SIGN UP</h1>
           {/* sign up infromation added to the database*/}
           <input type='text' name='firstname' placeholder='Enter First Name' onChange={e => setfirstname(e.target.value)} id='firstnameinput'/>
           <input type='text' name='lastname' placeholder='Enter Last Name' onChange={e => setlastname(e.target.value)} id='lastnameinput'/>
@@ -81,9 +82,9 @@ export default function Signupform(){
       <br></br>
         <Link href="../components/Loginform"><label>Already have an account?</label></Link>
         </div>
-          
     </div>
     </body>
+    </html>
   )
 };
 // const root = ReactDom.createRoot(document.getElementById('root'));

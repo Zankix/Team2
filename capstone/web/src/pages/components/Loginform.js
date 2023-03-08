@@ -42,7 +42,7 @@ export default function Loginform(){
     <div>
       <NavBar></NavBar> 
         <div name='signup'>
-          <h1>Login to FIT</h1>
+          <h1>LOGIN</h1>
           {/* login information */}
           <input type='text' name='loginusername' placeholder='Username' onChange={e => getloginusername(e.target.value)} id='usernameinput'/>
           <input type="password" name='loginpassword' placeholder='Password' onChange={e => getloginpassword(e.target.value)} id='passinput'/>

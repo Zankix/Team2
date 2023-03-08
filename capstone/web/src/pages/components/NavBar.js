@@ -6,7 +6,8 @@ function NavBar() {
     <div><div name = 'navbar'>
       <Link name = 'my-link' href='/'><h1>HOME</h1></Link>
         <Link name = 'my-link' href="../components/Loginform"><h1>LOGIN</h1></Link>
-        <Link name = 'my-link' href="../components/Signupform"><h1>SIGNUP</h1></Link>
+        <Link name = 'my-link' href="../components/Signupform"><h1>SIGN UP</h1></Link>
+        <Link name = 'my-link' href="../components/About"><h1>ABOUT</h1></Link>
     </div></div>
   )
 }
