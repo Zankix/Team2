@@ -39,6 +39,7 @@ export default function Loginform(){
       
   }
   return (
+    <body name = 'front-background'>
     <div>
       <NavBar></NavBar> 
         <div name='signup'>
@@ -53,6 +54,6 @@ export default function Loginform(){
           <br></br>
         <Link href="../components/Signupform"><label>Don't have an account?</label></Link>
         </div>
-    </div>
+    </div></body>
   )
 };

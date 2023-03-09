@@ -8,6 +8,7 @@ import Link from "next/link"
 
 function About() {
   return (
+    <body name = 'front-background'>
     <div>
       <NavBar></NavBar>
       <div name = 'about'>
@@ -22,10 +23,8 @@ function About() {
       </ul></h3> <h3>FIT is what you need to take it to the next level.</h3>
       <br></br>
         <Link name = 'start-link' href="../components/Signupform"><header>GET STARTED WITH FIT</header></Link>
-        
-    
     </div></div>
-    
+    </body>
   )
 }
 

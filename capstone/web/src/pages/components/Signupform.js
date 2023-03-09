@@ -55,7 +55,7 @@ export default function Signupform(){
   }
   return (
     <html>
-    <body>
+    <body name = 'front-background'>
     <div>
       <NavBar></NavBar>
         <div name='signup'>
