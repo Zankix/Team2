@@ -1,55 +1,48 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import PocketBase from 'pocketbase'; 
-const pb = new PocketBase('http://127.0.0.1:8090'); 
-
-
-//form for sign up 
-const viewpassword =() => { 
-  var x = document.getElementById('passinput1'); 
-  var y = document.getElementById('passinput2'); 
-  if(x.type === 'password') { 
-    x.type = 'text'; 
-    y.type = 'text'; 
-  } 
-  else { 
-    x.type = 'password' 
-    y.type = 'password' 
-  } 
-} 
 
 export default function Signupform2() {
     const router = useRouter();
-    const firstname = localStorage.getItem('firstname');
-    const lastname = localStorage.getItem('lastname');
-    const email = localStorage.getItem('email');
     const [ username, setusername ] = useState('');
     const [ password, setpassword ] = useState('');
     const [ repassword, setrepassword ] = useState('');
 
-    const adduser = async (e) => {
-      e.preventDefault();
-      const data = {
-        "username": username,
-        "email": email,
-        "emailVisibility": true,
-        "password": password,
-        "passwordConfirm": repassword,
-        "firstname": firstname,
-        "lastname": lastname,
-      };
+
+    const adduser = async(e) => {
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      const combinedUserData = { ...userData, username, password, repassword };
       try {
-        const record = await pb.collection('user').create(data);
-        localStorage.clear();
-        router.push('../components/dashboard');
+        const response = await pocketbase.create('users', combinedUserData);
+        console.log(response);
+        localStorage.removeItem('userData');
+        // Redirect to success page
+        router.push('/signup/success');
       } catch (error) {
-        localStorage.clear();
-        router.push('./Signupform');
-        alert('Data error please review your entry.');
+        console.error(error);
       }
-    };
+      router.push('../components/dashboard');
+    }
 
-
+    // async function adduser() {
+      
+    //   const data = {
+    //     "username": username,
+    //     "email": email,
+    //     "emailVisibility": true,
+    //     "password": password,
+    //     "passwordConfirm": repassword,
+    //     "firstname": firstname,
+    //     "lastname": lastname,
+    // };
+    // try {
+    //   const record = await pb.collection('user').create(data);
+    //   router.push('../components/dashboard');
+    // } catch (error) {
+    //   alert('Data error please review your entree');
+    // }
+    // (optional) send an email verification request
+    //await pb.collection('user').requestVerification(semail);
+    //}
   return (
     <div name='signup'>
       <input type='text' name='username' placeholder='Username' onChange={e => setusername(e.target.value)} id='usernameinput'/>

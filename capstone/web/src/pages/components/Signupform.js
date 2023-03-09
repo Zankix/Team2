@@ -5,15 +5,20 @@ import PocketBase from 'pocketbase';
 import { useRouter } from 'next/router';
 import Link from "next/link"
 
-
-const clearinput = () => {
-  document.getElementById('firstnameinput').value = '';
-  document.getElementById('lastnameinput').value = '';
-  document.getElementById('emailinput').value = '';
-  const pb = new PocketBase('http://127.0.0.1:8090');
-}
+const pb = new PocketBase('http://127.0.0.1:8090');
 //form for sign up
-
+const viewpassword =() => {
+    var x = document.getElementById('passinput1');
+    var y = document.getElementById('passinput2');
+    if(x.type === 'password') {
+      x.type = 'text';
+      y.type = 'text';
+    }
+    else {
+      x.type = 'password'
+      y.type = 'password'
+    }
+}
 export default function Signupform(){
   const router = useRouter();
   const [ sfirstname, setfirstname ] = useState('');
@@ -38,16 +43,16 @@ export default function Signupform(){
       "address": saddress,
       "phonenumber": sphonenumber,
       "dob": sdob
-    };
+  };
   try {
     const record = await pb.collection('user').create(data);
     router.push('../components/dashboard');
   } catch (error) {
     alert('Data error please review your entree');
   }
-}
-
-  
+  // (optional) send an email verification request
+  //await pb.collection('user').requestVerification(semail);
+  }
   return (
     <html>
     <body name = 'front-background'>
@@ -81,5 +86,7 @@ export default function Signupform(){
     </body>
     </html>
   )
-}
+};
+// const root = ReactDom.createRoot(document.getElementById('root'));
+// root.render(<signupform/>);
 
