@@ -50,6 +50,7 @@ export default function Addworkout() {
             Select Date:
             <input type='date' name='workoutdate' placeholder='Enter workout name' onChange={e => setworkoutdate(e.target.value)} id='workoutdateinput'/>
           </label>
+          <br></br>
           <button onClick={addnewworkout}>Add New Workout</button>
         </div>
         
