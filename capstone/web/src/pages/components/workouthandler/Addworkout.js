@@ -50,7 +50,7 @@ export default function Addworkout() {
   return (
     <div>
       <Topbar></Topbar>
-        <div name='addworkout'>
+        <div name='addclient'>
           <h1>Add Workout</h1>
           <label>
             Workout Name:
