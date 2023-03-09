@@ -7,19 +7,7 @@ import NavBar from './NavBar'
  
 const pb = new PocketBase('http://127.0.0.1:8090'); 
 
-//form for sign up 
-const viewpassword =() => { 
-    var x = document.getElementById('passinput1'); 
-    var y = document.getElementById('passinput2'); 
-    if(x.type === 'password') { 
-      x.type = 'text'; 
-      y.type = 'text'; 
-    } 
-    else { 
-      x.type = 'password' 
-      y.type = 'password' 
-    } 
-} 
+
 const clearinput = () => {
   document.getElementById('firstnameinput').value = '';
   document.getElementById('lastnameinput').value = '';
