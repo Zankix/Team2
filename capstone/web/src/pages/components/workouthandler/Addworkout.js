@@ -9,6 +9,7 @@ const pb = new PocketBase('http://127.0.0.1:8090');
 
 export default function Addworkout() {
   const router = useRouter();
+  const [workouts, setWorkouts] = useState([]);
   const [ workoutname, setworkoutname ] = useState('');
   const [ workoutdescription, setworkoutdescription ] = useState('');
   const [ workoutfocus, setworkoutfocus ] = useState('');
@@ -16,16 +17,36 @@ export default function Addworkout() {
 
   const addnewworkout = async(e) => {
     const data = {
-      "workoutname": "test",
-      "workoutdescription": "test",
-      "workoutfocus": "test",
-      "workoutdate": "2022-01-01 10:00:00.123Z",
+      "workoutname": workoutname,
+      "workoutdescription": workoutdescription,
+      "workoutfocus": workoutfocus,
+      "workoutdate": workoutdate,
       // "exercises": [
       //     "RELATION_RECORD_ID"
       // ]
   };
-  const record = await pb.collection('workouts').create(data);
+  try{
+    const record = await pb.collection('workouts').create(data);
+    router.push('../workoutform')
+    alert('Workout Added')
+  } catch (error){
+      alert('Data invalid for one or more of fields');
   }
+  }
+  const displayWorkouts = async () => {
+    try {
+      const result = await pb.collection('workouts').findAll();
+      setWorkouts(result);
+      console.log('Workouts found: ', result);
+    } catch (err) {
+      console.error('Error fetching workouts: ', err);
+    }
+  };
+
+  useEffect(() => {
+    displayWorkouts();
+  }, []);
+
   return (
     <div>
       <Topbar></Topbar>

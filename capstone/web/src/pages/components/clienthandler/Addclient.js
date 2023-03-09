@@ -30,6 +30,7 @@ export default function Addclient() {
         };
         try{
             const record = await pb.collection('clients').create(data);
+            router.push('../clientform')
             alert('Client Added')
         } catch (error){
             alert('Data invalid for one or more of fields');
@@ -59,6 +60,7 @@ export default function Addclient() {
         <input type='number' name='weight' placeholder='Enter Weight' onChange={e => setweight(e.target.value)} id='clientweight' />
         <input type='text' name='phonenumber' placeholder='Enter Phone Number' onChange={e => setphonenumber(e.target.value)} id='clientphonenumber' />
         <input type='text' name='email' placeholder='Enter Email' onChange={e => setemail(e.target.value)} id='clientemail' />
+        <br></br>
         <button onClick={addclient}>ADD</button>
         <button onClick={clearSelect}>CLEAR</button>
       </div>
