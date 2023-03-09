@@ -42,7 +42,7 @@ export default function Signupform2() {
     // }
     // (optional) send an email verification request
     //await pb.collection('user').requestVerification(semail);
-    }
+    //}
   return (
     <div name='signup'>
       <input type='text' name='username' placeholder='Username' onChange={e => setusername(e.target.value)} id='usernameinput'/>
