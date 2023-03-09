@@ -30,9 +30,11 @@ export default function Signupform(){
   const [ email, setemail ] = useState('');
 
   
-  const nextpart = async(event) => {
-    event.preventDefault();
-    const user1 = await pb.collection('user').create(data)
+  const nextpart = async(e) => {
+    e.preventDefault();
+    localStorage.setItem('firstname', firstname);
+    localStorage.setItem('lastname', lastname);
+    localStorage.setItem('email', email);
     router.push('./Signupform2');
   }
   
