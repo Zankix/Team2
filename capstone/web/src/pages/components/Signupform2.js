@@ -6,31 +6,40 @@ export default function Signupform2() {
     const [ username, setusername ] = useState('');
     const [ password, setpassword ] = useState('');
     const [ repassword, setrepassword ] = useState('');
-     
-    useEffect(() => {
-      const data = localStorage.getItem('signupdata1');
-      if(data){
-        const { firstname, lastname, email } = JSON.parse(data);
+
+
+    const adduser = async(e) => {
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      const combinedUserData = { ...userData, username, password, repassword };
+      try {
+        const response = await pocketbase.create('users', combinedUserData);
+        console.log(response);
+        localStorage.removeItem('userData');
+        // Redirect to success page
+        router.push('/signup/success');
+      } catch (error) {
+        console.error(error);
       }
-    
-    }, []);
-    async function adduser() {
-      
-      const data = {
-        "username": username,
-        "email": email,
-        "emailVisibility": true,
-        "password": password,
-        "passwordConfirm": repassword,
-        "firstname": firstname,
-        "lastname": lastname,
-    };
-    try {
-      const record = await pb.collection('user').create(data);
       router.push('../components/dashboard');
-    } catch (error) {
-      alert('Data error please review your entree');
     }
+
+    // async function adduser() {
+      
+    //   const data = {
+    //     "username": username,
+    //     "email": email,
+    //     "emailVisibility": true,
+    //     "password": password,
+    //     "passwordConfirm": repassword,
+    //     "firstname": firstname,
+    //     "lastname": lastname,
+    // };
+    // try {
+    //   const record = await pb.collection('user').create(data);
+    //   router.push('../components/dashboard');
+    // } catch (error) {
+    //   alert('Data error please review your entree');
+    // }
     // (optional) send an email verification request
     //await pb.collection('user').requestVerification(semail);
     }
