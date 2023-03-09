@@ -29,7 +29,7 @@ export default function Addworkout() {
   return (
     <div>
       <Topbar></Topbar>
-        <div name='addworkout'>
+        <div name='addclient'>
           <h1>Add Workout</h1>
           <label>
             Workout Name:
@@ -50,6 +50,7 @@ export default function Addworkout() {
             Select Date:
             <input type='date' name='workoutdate' placeholder='Enter workout name' onChange={e => setworkoutdate(e.target.value)} id='workoutdateinput'/>
           </label>
+          <br></br>
           <button onClick={addnewworkout}>Add New Workout</button>
         </div>
         

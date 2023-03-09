@@ -9,7 +9,7 @@
      padding: 0;  
 
   } 
-}
+} 
 
 body {
   height: 100%;
@@ -50,6 +50,7 @@ div[name=signup] {
   font-family:'Courier New', Courier, monospace;
 }
 div[name=home] { 
+  background-color: #fbfbfbea;
   color: #000000;
   font-size: x-large;
   margin: 50px auto;
@@ -57,6 +58,8 @@ div[name=home] {
   max-height: auto ;
   text-align: center;
   box-sizing: border-box;
+  border-radius: 1rem;
+  gap: 2rem;
   font-family:'Courier New', Courier, monospace;
 }
 div[name=about]{
