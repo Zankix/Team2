@@ -21,7 +21,7 @@ import Link from 'next/link';
      <div name='client'>
       {/* <button onClick={viewclients}>View Clients</button> */}
      </div>
-     <Link href={'../components/clienthandler/Addclient'}><h2>Add Client</h2></Link>
+     <Link name = 'in-link' href={'../components/clienthandler/Addclient'}><h2>Add Client</h2></Link>
     </div>
   )
 }

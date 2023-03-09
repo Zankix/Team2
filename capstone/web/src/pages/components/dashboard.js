@@ -4,7 +4,11 @@ function dashboard() {
   return (
     <div>
       <Topbar></Topbar>
-    </div>
+      <div name = 'home'>
+        <img src="/fitt.png"></img>
+      <h1>Welcome to FIT!</h1>
+      <br></br>
+</div></div>
   );
 }
 

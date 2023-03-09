@@ -50,7 +50,7 @@ export default function Addclient() {
     <div>
     <Topbar></Topbar>
       <div name='addclient'>
-        <h1>Add Client</h1>
+        <h1>ADD CLIENT</h1>
         <input type='text' name='firstname' placeholder='Enter First name' onChange={e => setfirstname(e.target.value)} id='clientfirstname'/>
         <input type='text' name='lastname' placeholder='Enter Last name' onChange={e => setlastname(e.target.value)} id='clientlastname' />
         <input type='date' name='dob' placeholder='Enter DOB YYYY-DD-MM' onChange={e => setdob(e.target.value)} id='clientdob' />
@@ -60,7 +60,7 @@ export default function Addclient() {
         <input type='text' name='phonenumber' placeholder='Enter Phone Number' onChange={e => setphonenumber(e.target.value)} id='clientphonenumber' />
         <input type='text' name='email' placeholder='Enter Email' onChange={e => setemail(e.target.value)} id='clientemail' />
         <button onClick={addclient}>ADD</button>
-        <button onClick={clearSelect}>Clear Input</button>
+        <button onClick={clearSelect}>CLEAR</button>
       </div>
     </div>
   )
