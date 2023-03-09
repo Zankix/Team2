@@ -38,7 +38,7 @@ export default function Loginform(){
   return (
     <div>
       <NavBar></NavBar> 
-        <div className='login'>
+        <div name='login'>
           <h1>Login to FIT</h1>
           {/* login information */}
           <input type='text' name='loginusername' placeholder='Username' onChange={e => getloginusername(e.target.value)} id='usernameinput'/>
@@ -47,8 +47,10 @@ export default function Loginform(){
           <input type='checkbox' onClick={()=>viewpassword()}/>Show Password 
           <br></br>
           <button onClick={login}>Login</button>
+          <div><label>Don't have an account?</label></div>
+          
         </div>
-        <label>Don't have an account?</label>
+        
     </div>
   )
 };
