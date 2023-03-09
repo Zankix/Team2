@@ -1,19 +1,28 @@
 
 @media (prefers-color-scheme: dark) {
   html {
-    background: conic-gradient(from 90deg, #ff7f50, 
-    #ff2b2b, #ff1493, #ff69b4, #ffd700, 
-    #32cd32, #87cefa, #4169e1, #8b008b, #9400d3,
-     #ff00ff, #ff69b4);
-     background-image: url("../styles/fit\ background.gif");
      background-repeat: no-repeat;
      background-size: cover;
      height: 100%;
      width: 100%;
      margin: 0;
-     padding: 0;
+     padding: 0;  
 
   } 
+}
+
+body {
+  background-color: gray;
+
+  height: 100%;
+  width: 100%;
+  background: conic-gradient(from 90deg, #ff7f50,  
+  #ff2b2b, #ff1493, #ff69b4, #ffd700,  
+  #32cd32, #87cefa, #4169e1, #8b008b, #9400d3, 
+  #ff00ff, #ff69b4);
+  background-image: url("../styles/fit\ background.gif"); 
+  background-repeat: no-repeat;
+background-size: cover;
 }
 
 div [name = main-background]{
