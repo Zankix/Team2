@@ -54,9 +54,9 @@ export default function Signupform(){
   //await pb.collection('user').requestVerification(semail);
   }
   return (
-    <html>
-    <body name = 'front-background'>
-    <div>
+    
+    <div name = 'front-background'>
+  
       <NavBar></NavBar>
         <div name='signup'>
           <h1>SIGN UP</h1>
@@ -79,14 +79,12 @@ export default function Signupform(){
           <br></br>
           <button onClick={adduser}>Sign up</button>
           {/* <input type='submit' name='Sign Up' onClick={signuphandler}></input> */}
-      <br></br>
-        <Link href="../components/Loginform"><label>Already have an account?</label></Link>
+          <br></br>
+          <Link href="../components/Loginform"><label>Already have an account?</label></Link>
         </div>
     </div>
-    </body>
-    </html>
-  )
-};
+
+  )};
 // const root = ReactDom.createRoot(document.getElementById('root'));
 // root.render(<signupform/>);
 

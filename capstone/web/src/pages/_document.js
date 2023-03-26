@@ -4,12 +4,12 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <div name = 'main-background'>
-      <body>
-        <Main />
-        <NextScript />
+      <body name = 'main-background'>
+        <div>
+          <Main />
+          <NextScript />
+        </div>
       </body>
-      </div>
     </Html>
   )
 }

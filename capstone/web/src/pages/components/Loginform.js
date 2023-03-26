@@ -39,21 +39,22 @@ export default function Loginform(){
       
   }
   return (
-    <body name = 'front-background'>
-    <div>
-      <NavBar></NavBar> 
-        <div name='signup'>
-          <h1>LOGIN</h1>
-          {/* login information */}
-          <input type='text' name='loginusername' placeholder='Username' onChange={e => getloginusername(e.target.value)} id='usernameinput'/>
-          <input type="password" name='loginpassword' placeholder='Password' onChange={e => getloginpassword(e.target.value)} id='passinput'/>
-          <br></br>
-          <input type='checkbox' onClick={()=>viewpassword()}/>Show Password 
-          <br></br>
-          <button onClick={login}>Login</button>
-          <br></br>
-        <Link href="../components/Signupform"><label>Don't have an account?</label></Link>
-        </div>
-    </div></body>
+    <div name = 'front-background'>
+      <div>
+        <NavBar></NavBar> 
+          <div name='signup'>
+            <h1>LOGIN</h1>
+            {/* login information */}
+            <input type='text' name='loginusername' placeholder='Username' onChange={e => getloginusername(e.target.value)} id='usernameinput'/>
+            <input type="password" name='loginpassword' placeholder='Password' onChange={e => getloginpassword(e.target.value)} id='passinput'/>
+            <br></br>
+            <input type='checkbox' onClick={()=>viewpassword()}/>Show Password 
+            <br></br>
+            <button onClick={login}>Login</button>
+            <br></br>
+          <Link href="../components/Signupform"><label>Don't have an account?</label></Link>
+          </div>
+      </div>
+    </div>
   )
 };
