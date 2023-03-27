@@ -3,7 +3,7 @@ import PocketBase from 'pocketbase';
 
 export default function Table({ tabledata }) {
     if (!tabledata) {
-      return <p>Loading...</p>;
+      return <p>Loading..</p>;
     }
   
     return (
@@ -28,8 +28,9 @@ export default function Table({ tabledata }) {
         </tbody>
       </table>
     );
-  }
-  export async function getStaticProps() {
+}
+
+export async function getStaticProps() {
     try {
       const pb = new PocketBase('http://127.0.0.1:8090');
       const data = await pb.get('workouts');
@@ -55,5 +56,4 @@ export default function Table({ tabledata }) {
         },
       };
     }
-  }
-  
+}

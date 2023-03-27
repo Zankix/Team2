@@ -1,27 +1,19 @@
 import Topbar from './pagecomponents/Topbar';
-import {Workoutdata} from './workouthandler/Workoutdata'
-import Table from './workouthandler/Workoutdata'
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
-export default function workoutform({tableData}) {
-  
+import { Workoutdata } from './workouthandler/Workoutdata';
+import Table from './workouthandler/Workoutdata';
+import React, { useEffect, useState } from 'react';
+
+export default function WorkoutForm({ tableData }) {
   return (
     <div>
-      <Topbar></Topbar>
-      <Table tabledata={tableData}/>
+      <Topbar />
+      {/* <Table tabledata={tableData}/> */}
       <div name='workout'>
-      <Link href={'../components/workouthandler/Addworkout'}><h2>Add Workout</h2></Link>
-
+        <button onClick={() => window.location.href = '../components/workouthandler/Addworkout'}>Add Workout</button>
+        <button onClick={() => window.location.href = '../components/workouthandler/Editworkout'}>Edit Workout</button>
+        <button onClick={() => window.location.href = '../components/workouthandler/Deleteworkout'}>Delete Workout</button>
       </div>
-</div>
-   
-  )
+    </div>
+  );
 }
-async function getStaticProps(){
-  const tableData = await Workoutdata();
-  return {
-    prop: {
-      tableData
-    }
-  };
-}
+
