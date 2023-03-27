@@ -1,13 +1,15 @@
 import Topbar from './pagecomponents/Topbar';
-import { Workoutdata } from './workouthandler/Workoutdata';
-import Table from './workouthandler/Workoutdata';
-import React, { useEffect, useState } from 'react';
+import  Workoutdata  from './workouthandler/Workoutdata';
 
-export default function WorkoutForm({ tableData }) {
+import PocketBase from 'pocketbase';
+const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
+
+export default function WorkoutForm() {
+
   return (
     <div>
       <Topbar />
-      {/* <Table tabledata={tableData}/> */}
+      <Workoutdata></Workoutdata>
       <div name='workout'>
         <button onClick={() => window.location.href = '../components/workouthandler/Addworkout'}>Add Workout</button>
         <button onClick={() => window.location.href = '../components/workouthandler/Editworkout'}>Edit Workout</button>

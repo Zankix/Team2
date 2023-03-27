@@ -1,59 +1,77 @@
-import React from 'react';
 import PocketBase from 'pocketbase';
+const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
 
-export default function Table({ tabledata }) {
-    if (!tabledata) {
-      return <p>Loading..</p>;
+export default function Table() {
+  const router = useRouter();
+  const [workouts, setWorkouts] = useState([]);
+
+  const testConnection = async () => {
+    try {
+      // Try to retrieve data from PocketBase server
+      const result = await pb.collection('workouts').getFullList(200, { sort: '-created'});
+      console.log('Connection to PocketBase server successful.');
+    } catch (err) {
+      // Catch network errors
+      if (err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED') {
+        console.error('Error connecting to PocketBase server: Network error');
+      }
+      // Catch server errors
+      else if (err.response) {
+        console.error('Error connecting to PocketBase server: Server error');
+      }
+      // Catch authentication errors
+      else if (err.code === 'EBADAUTH') {
+        console.error('Error connecting to PocketBase server: Authentication error');
+      }
+      // Catch other errors
+      else {
+        console.error('Error connecting to PocketBase server:', err.message);
+      }
     }
-  
+  };
+
+  const displayWorkouts = async () => {
+    try {
+      const result = await pb.collection('workouts').getFullList(200, { sort: '-created'},{timeout: 5000});
+      setWorkouts(result);
+      console.log('Workouts found: ', result);
+    } catch (err) {
+      console.error('Error fetching workouts: ', err);
+    }
+  };
+
+  useEffect(() => {
+    testConnection();
+    displayWorkouts();
+  }, []);
+
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Workout Name</th>
-            <th>Workout Focus</th>
-            <th>Workout Description</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tabledata.map((row) => (
-            <tr key={row.id}>
-              <td>{row.workoutname}</td>
-              <td>{row.workoutfocus}</td>
-              <td>{row.workoutdescription}</td>
-              <td>{row.workoutdate}</td>
+      <div>
+      <h1>Workouts</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Focus</th>
+              <th>Date</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {workouts.map(workout => (
+              <tr key={workout._id}>
+                <td>{workout.workoutname}</td>
+                <td>{workout.workoutdescription}</td>
+                <td>{workout.workoutfocus}</td>
+                <td>{workout.workoutdate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
     );
 }
 
-export async function getStaticProps() {
-    try {
-      const pb = new PocketBase('http://127.0.0.1:8090');
-      const data = await pb.get('workouts');
-      const tableData = data
-        ? data.map((item) => ({
-            workoutname: item.fields.workoutname,
-            workoutdescription: item.fields.workoutdescription,
-            workoutfocus: item.fields.workoutfocus,
-            workoutdate: item.fields.workoutdate,
-          }))
-        : [];
-  
-      return {
-        props: {
-          tabledata: tableData,
-        },
-      };
-    } catch (error) {
-      console.error(error);
-      return {
-        props: {
-          tabledata: undefined,
-        },
-      };
-    }
-}
