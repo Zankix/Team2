@@ -78,6 +78,21 @@ div [name = client]{
   cursor: pointer;
   font-family:Arial, Helvetica, sans-serif;
 }
+.button-back{
+  background-color: #3254cd;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 5px 5px;
+  display: inline;
+  font-size: 20px;
+  cursor: pointer;
+  font-family:Arial, Helvetica, sans-serif;
+}
 
 div [name = front-background]{
   position:absolute;
@@ -89,8 +104,30 @@ div [name = front-background]{
   #32cd32, #87cefa, #4169e1, #8b008b, #9400d3, 
   #ff00ff, #ff69b4);
   background-image: url("../styles/fit\ background.gif"); 
+  animation: slideshow 30s infinite;
   background-repeat: no-repeat;
 background-size: cover;
+}
+
+@keyframes slideshow {
+  0% {
+    background-image: url("../styles/fit\ background.gif"); 
+  }
+  16% {
+    background-image: url("../styles/fit\ background2.gif"); 
+  }
+  32% {
+    background-image: url("../styles/fit\ background3.gif"); 
+  }
+  48% {
+    background-image: url("../styles/fit\ background4.gif"); 
+  }
+  62% {
+    background-image: url("../styles/fit\ background5.gif"); 
+  }
+  80% {
+    background-image: url("../styles/fit\ background6.gif"); 
+  }
 }
 
 body [name = main-background]{
@@ -110,6 +147,10 @@ div [name=signup] {
   border-radius: 1rem;
   gap: 2rem;
   font-family:'Courier New', Courier, monospace;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 div [name=home] { 
   background-color: #fbfbfbea;

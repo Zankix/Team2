@@ -50,7 +50,7 @@ export default function Addclient() {
   return (
     <div>
     <Topbar></Topbar>
-    <button class="button button-mainpages" onClick={() => router.back()}>Back</button>
+    
     <h1 class="h1 titles">Add Clients</h1>
       <div name='addclient'>
         <h1>ADD CLIENT</h1>
@@ -66,6 +66,7 @@ export default function Addclient() {
         <button class="button button-mainpages" onClick={addclient}>ADD</button>
         <button class="button button-mainpages" onClick={clearSelect}>CLEAR</button>
       </div>
+      <button class="button button-back" onClick={() => router.back()}>Back</button>
     </div>
   )
 }

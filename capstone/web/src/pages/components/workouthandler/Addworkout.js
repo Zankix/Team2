@@ -33,7 +33,6 @@ export default function Addworkout() {
  
     <div>
       <Topbar></Topbar>
-      <button class="button button-mainpages" onClick={() => router.back()}>Back</button>
       <h1 class="h1 titles">Add Workouts</h1>
       <Workoutdata></Workoutdata>
         <div name='addclient'>
@@ -60,6 +59,7 @@ export default function Addworkout() {
           <br></br>
           <button class="button button-mainpages" onClick={addnewworkout}>Add New Workout</button>
         </div>
+        <button class="button button-back" onClick={() => router.back()}>Back</button>
     </div>
   )
 }
