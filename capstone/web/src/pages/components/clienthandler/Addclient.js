@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
-
 export default function Addclient() {
     const router = useRouter();
     const [ firstname , setfirstname ] = useState('');
