@@ -10,9 +10,9 @@ const EditWorkout = () => {
   return (
     <div>
       <Topbar></Topbar>
-      <button class="button button-mainpages" onClick={() => router.back()}>Back</button>
       <h1 class="h1 titles">Edit Workouts</h1>
       <Workoutdata></Workoutdata>
+      <button class="button button-back" onClick={() => router.back()}>Back</button>
     </div>
   )
 }
