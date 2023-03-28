@@ -33,9 +33,10 @@ export default function Addworkout() {
  
     <div>
       <Topbar></Topbar>
-      <button onClick={() => router.back()}>Back</button>
+      <button class="button button-mainpages" onClick={() => router.back()}>Back</button>
+      <h1 class="h1 titles">Add Workouts</h1>
       <Workoutdata></Workoutdata>
-        <div name='addworkout'>
+        <div name='addclient'>
           <h1>Add Workout</h1>
           <label>
             Workout Name:
@@ -57,7 +58,7 @@ export default function Addworkout() {
             <input type='date' name='workoutdate' placeholder='Enter workout date' onChange={e => setworkoutdate(e.target.value)} id='workoutdateinput'/>
           </label>
           <br></br>
-          <button onClick={addnewworkout}>Add New Workout</button>
+          <button class="button button-mainpages" onClick={addnewworkout}>Add New Workout</button>
         </div>
     </div>
   )

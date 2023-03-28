@@ -49,8 +49,7 @@ export default function Table() {
 
     return (
       <div>
-      <h1>Workouts</h1>
-        <table>
+        <table class="table my-table">
           <thead>
             <tr>
               <th>Name</th>

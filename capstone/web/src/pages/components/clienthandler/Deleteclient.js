@@ -7,7 +7,7 @@ const Deleteclient = () => {
   return (
     <div>
       <Topbar></Topbar>
-      <button onClick={() => router.back()}>Back</button>
+      <button class="button button-mainpages" onClick={() => router.back()}>Back</button>
 
     </div>
   )

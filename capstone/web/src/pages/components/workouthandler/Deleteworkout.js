@@ -10,10 +10,9 @@ const DeleteWorkout = () => {
   return (
     <div>
       <Topbar></Topbar>
+      <button class="button button-mainpages" onClick={() => router.back()}>Back</button>
+      <h1 class="h1 titles">Delete Workouts</h1>
       <Workoutdata></Workoutdata>
-
-      <button onClick={() => router.back()}>Back</button>
-
     </div>
   )
 }
