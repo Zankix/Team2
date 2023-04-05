@@ -36,7 +36,6 @@ const DeleteWorkout = () => {
     <div>
       <Topbar></Topbar>
       <button onClick={() => router.back()}>Back</button>
-      <button onClick={() => router.back()}>Back</button>
       <h1>Workouts</h1>
       <table>
         <thead>
