@@ -2,8 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/components/About": "pages/components/About.js",
-  "/": "pages/index.js",
-  "/components/Signupform": "pages/components/Signupform.js",
-  "/components/Loginform": "pages/components/Loginform.js"
+  "/components/clientform": "pages/components/clientform.js"
 }
