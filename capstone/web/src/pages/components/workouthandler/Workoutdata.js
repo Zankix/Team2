@@ -1,10 +1,9 @@
+import React, { useEffect, useState } from 'react'
 import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react'
 
 export default function Table() {
-  const router = useRouter();
+
   const [workouts, setWorkouts] = useState([]);
 
   const testConnection = async () => {
@@ -34,7 +33,7 @@ export default function Table() {
 
   const displayWorkouts = async () => {
     try {
-      const result = await pb.collection('workouts').getFullList(200, { sort: '-created'},{timeout: 5000});
+      const result = await pb.collection('workouts').getFullList(200, { sort: '-created'});
       setWorkouts(result);
       console.log('Workouts found: ', result);
     } catch (err) {
@@ -60,7 +59,7 @@ export default function Table() {
           </thead>
           <tbody>
             {workouts.map(workout => (
-              <tr key={workout._id}>
+              <tr key={workout.id}>
                 <td>{workout.workoutname}</td>
                 <td>{workout.workoutdescription}</td>
                 <td>{workout.workoutfocus}</td>
