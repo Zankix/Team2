@@ -8,7 +8,7 @@ export default function Table() {
 
   const displayWorkouts = async () => {
     try {
-      const result = await pb.collection('workouts').getFullList(200);
+      const result = await pb.collection('workouts').getFullList(200, { '$autoCancel': false });
       setWorkouts(result);
       console.log('Workouts found: ', result);
     } catch (err) {
@@ -17,7 +17,10 @@ export default function Table() {
   };
 
   useEffect(() => {
-    displayWorkouts();
+    const fetchWorkouts = async () => {
+      await displayWorkouts();
+    };
+    fetchWorkouts();
   }, []);
 
   return (
@@ -39,9 +42,10 @@ export default function Table() {
               <td>{workout.workoutdescription}</td>
               <td>{workout.workoutfocus}</td>
               <td>
-                {workout.clients.map((client, index) => (
-                  <div key={index}>{client}</div>
-                ))}
+              {workout.clients.map(client => (
+  <div key={client}>{client}</div>
+))}
+
               </td>
               <td>{workout.workoutdate}</td>
             </tr>

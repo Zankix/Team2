@@ -1,6 +1,7 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/components/workoutform": "pages/components/workoutform.js"
+  "/_document": "pages/_document.js",
+  "/components/workoutform": "pages/components/workoutform.js",
+  "/components/clientform": "pages/components/clientform.js"
 }
