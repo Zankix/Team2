@@ -36,7 +36,7 @@ const Deleteclient = () => {
       <Topbar></Topbar>
       <button onClick={() => router.back()}>Back</button>
       <h1>Clients</h1>
-      <table>
+      <table class='table my-table'>
         <thead>
           <tr>
             <th>First Name</th>

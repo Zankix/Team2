@@ -7,14 +7,16 @@ function clientform() {
  
   return (
     <div>
-      <Topbar></Topbar>
+      <Topbar/>
+      <h1 class="h1 titles">Clients</h1>
       <Clientdata></Clientdata>
       <div name='client'>
-        {/* <button onClick={viewclients}>View Clients</button> */}
-      <button class="button button-mainpages" onClick={() => {window.location.href = '../components/clienthandler/Addclient';}}>Add Client</button>
-      <button class="button button-mainpages"onClick={() => {window.location.href = '../components/clienthandler/Editclient';}}>Edit Client</button>
-      <button class="button button-mainpages" onClick={() => {window.location.href = '../components/clienthandler/Deleteclient';}}>Delete Client</button>
-    </div></div>
+          {/* <button onClick={viewclients}>View Clients</button> */}
+        <button class="button button-mainpages" onClick={() => {window.location.href = '../components/clienthandler/Addclient';}}>Add Client</button>
+        <button class="button button-mainpages"onClick={() => {window.location.href = '../components/clienthandler/Editclient';}}>Edit Client</button>
+        <button class="button button-mainpages" onClick={() => {window.location.href = '../components/clienthandler/Deleteclient';}}>Delete Client</button>
+      </div>
+    </div>
   )
 }
 

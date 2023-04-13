@@ -44,12 +44,12 @@ export default function Clientdata() {
     }, []);
   return (
     <div>
-      <h1 class="h1 titles">Clients</h1>
       <table class = "table my-table">
         <thead>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Age</th>
                 <th>Email</th>
                 <th>Phonenumber</th>
                 <th>Height</th>
@@ -61,6 +61,7 @@ export default function Clientdata() {
                 <tr key={client.id}>
                     <td>{client.firstname}</td>
                     <td>{client.lastname}</td>
+                    <td>{client.age}</td>
                     <td>{client.email}</td>
                     <td>{client.phonenumber}</td>
                     <td>{client.height}</td>

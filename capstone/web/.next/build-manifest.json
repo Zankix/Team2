@@ -30,15 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/components/clientform.js"
     ],
-    "/components/clienthandler/Deleteclient": [
+    "/components/workoutform": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/components/clienthandler/Deleteclient.js"
+      "static/chunks/pages/components/workoutform.js"
     ],
-    "/components/clienthandler/Editclient": [
+    "/components/workouthandler/Editworkout": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/components/clienthandler/Editclient.js"
+      "static/chunks/pages/components/workouthandler/Editworkout.js"
     ]
   },
   "ampFirstPages": []
