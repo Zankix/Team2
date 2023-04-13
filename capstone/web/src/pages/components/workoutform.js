@@ -9,11 +9,12 @@ export default function WorkoutForm() {
   return (
     <div>
       <Topbar />
+      <h1 class="h1 titles">Current Workouts</h1>
       <Workoutdata></Workoutdata>
-      <div name='workout'>
-        <button onClick={() => window.location.href = '../components/workouthandler/Addworkout'}>Add Workout</button>
-        <button onClick={() => window.location.href = '../components/workouthandler/Editworkout'}>Edit Workout</button>
-        <button onClick={() => window.location.href = '../components/workouthandler/Deleteworkout'}>Delete Workout</button>
+      <div name='client'>
+        <button class="button button-mainpages" onClick={() => window.location.href = '../components/workouthandler/Addworkout'}>Add Workout</button>
+        <button class="button button-mainpages" onClick={() => window.location.href = '../components/workouthandler/Editworkout'}>Edit Workout</button>
+        <button class="button button-mainpages" onClick={() => window.location.href = '../components/workouthandler/Deleteworkout'}>Delete Workout</button>
       </div>
     </div>
   );

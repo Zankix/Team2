@@ -50,7 +50,7 @@ export default function Loginform(){
             <br></br>
             <input type='checkbox' onClick={()=>viewpassword()}/>Show Password 
             <br></br>
-            <button onClick={login}>Login</button>
+            <button class="button button-frontpage" onClick={login}>Login</button>
             <br></br>
           <Link href="../components/Signupform"><label>Don't have an account?</label></Link>
           </div>

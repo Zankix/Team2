@@ -11,11 +11,10 @@ function clientform() {
       <Clientdata></Clientdata>
       <div name='client'>
         {/* <button onClick={viewclients}>View Clients</button> */}
-      </div>
-      <button onClick={() => {window.location.href = '../components/clienthandler/Addclient';}}>Add Client</button>
-      <button onClick={() => {window.location.href = '../components/clienthandler/Editclient';}}>Edit Client</button>
-      <button onClick={() => {window.location.href = '../components/clienthandler/Deleteclient';}}>Delete Client</button>
-    </div>
+      <button class="button button-mainpages" onClick={() => {window.location.href = '../components/clienthandler/Addclient';}}>Add Client</button>
+      <button class="button button-mainpages"onClick={() => {window.location.href = '../components/clienthandler/Editclient';}}>Edit Client</button>
+      <button class="button button-mainpages" onClick={() => {window.location.href = '../components/clienthandler/Deleteclient';}}>Delete Client</button>
+    </div></div>
   )
 }
 
