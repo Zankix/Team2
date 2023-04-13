@@ -2,5 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/components/clienthandler/Addclient": "pages/components/clienthandler/Addclient.js"
+  "/components/clientform": "pages/components/clientform.js",
+  "/components/clienthandler/Addclient": "pages/components/clienthandler/Addclient.js",
+  "/components/clienthandler/Editclient": "pages/components/clienthandler/Editclient.js",
+  "/components/workoutform": "pages/components/workoutform.js",
+  "/components/clienthandler/Deleteclient": "pages/components/clienthandler/Deleteclient.js"
 }
