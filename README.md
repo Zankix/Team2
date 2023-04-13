@@ -1,6 +1,6 @@
 # Team2
 
-## version 0.4 of FIT
+## version 0.8 of FIT
 
 version notes:
 
