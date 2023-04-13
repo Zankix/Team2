@@ -2,6 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/components/clientform": "pages/components/clientform.js",
-  "/components/workoutform": "pages/components/workoutform.js"
+  "/components/clienthandler/Addclient": "pages/components/clienthandler/Addclient.js"
 }

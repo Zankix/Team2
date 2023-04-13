@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Topbar from '../pagecomponents/Topbar'
 import PocketBase from 'pocketbase';
 import { useRouter } from 'next/router';
+import Clientdata from './Clientdata';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
 export default function Addclient() {
+  
+
     const router = useRouter();
     const [ firstname , setfirstname ] = useState('');
     const [ lastname , setlastname ] = useState('');
@@ -46,11 +49,12 @@ export default function Addclient() {
         document.getElementById('clientemail').value = '';
     }
 
+
   return (
     <div>
     <Topbar></Topbar>
-    
-    <h1 class="h1 titles">Add Clients</h1>
+    <button onClick={() => router.back()}>Back</button>
+    <Clientdata></Clientdata>
       <div name='addclient'>
         <h1>ADD CLIENT</h1>
         <input type='text' name='firstname' placeholder='Enter First name' onChange={e => setfirstname(e.target.value)} id='clientfirstname'/>
@@ -62,12 +66,13 @@ export default function Addclient() {
         <input type='text' name='phonenumber' placeholder='Enter Phone Number' onChange={e => setphonenumber(e.target.value)} id='clientphonenumber' />
         <input type='text' name='email' placeholder='Enter Email' onChange={e => setemail(e.target.value)} id='clientemail' />
         <br></br>
-        <button class="button button-mainpages" onClick={addclient}>ADD</button>
-        <button class="button button-mainpages" onClick={clearSelect}>CLEAR</button>
+        <button onClick={addclient}>ADD</button>
+        <button onClick={clearSelect}>CLEAR</button>
       </div>
-      <button class="button button-back" onClick={() => router.back()}>Back</button>
     </div>
   )
 }
+
+
 
 
