@@ -44,8 +44,8 @@ export default function Clientdata() {
     }, []);
   return (
     <div>
-      <h1>Clients</h1>
-      <table>
+      <h1 class="h1 titles">Clients</h1>
+      <table class = "table my-table">
         <thead>
             <tr>
                 <th>First Name</th>
