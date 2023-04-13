@@ -35,10 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/components/clienthandler/Deleteclient.js"
     ],
-    "/components/dashboard": [
+    "/components/clienthandler/Editclient": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/components/dashboard.js"
+      "static/chunks/pages/components/clienthandler/Editclient.js"
     ]
   },
   "ampFirstPages": []

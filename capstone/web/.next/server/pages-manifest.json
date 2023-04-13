@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/components/dashboard": "pages/components/dashboard.js",
   "/components/clienthandler/Deleteclient": "pages/components/clienthandler/Deleteclient.js",
-  "/components/clientform": "pages/components/clientform.js"
+  "/components/clientform": "pages/components/clientform.js",
+  "/components/clienthandler/Editclient": "pages/components/clienthandler/Editclient.js"
 }
