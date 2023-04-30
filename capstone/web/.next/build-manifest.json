@@ -25,15 +25,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/components/Loginform": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/components/Loginform.js"
+    ],
     "/components/clientform": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/components/clientform.js"
     ],
-    "/components/workoutform": [
+    "/components/dashboard": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/components/workoutform.js"
+      "static/chunks/pages/components/dashboard.js"
     ]
   },
   "ampFirstPages": []

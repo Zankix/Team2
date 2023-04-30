@@ -13,6 +13,7 @@ const EditWorkout = () => {
     workoutname: '',
     workoutdescription: '',
     workoutfocus: '',
+    clients:'',
     workoutdate: '',
   });
 
@@ -69,6 +70,7 @@ const EditWorkout = () => {
             <th>Name</th>
             <th>Description</th>
             <th>Focus</th>
+            <th>Clients</th>
             <th>Date</th>
             <th>Actions</th>
           </tr>
@@ -107,6 +109,18 @@ const EditWorkout = () => {
                   />
                 ) : (
                   workout.workoutfocus
+                )}
+              </td>
+              {/* clients dropdown select*/}
+              <td>
+                {editableRowId === index ? (
+                  <input
+                    type="select"
+                    id={`clients-${clients.id}`}
+                    defaultValue={clients.email}
+                  />
+                ) : (
+                  clients.email
                 )}
               </td>
               <td>

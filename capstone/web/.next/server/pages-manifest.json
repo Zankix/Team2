@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/components/workoutform": "pages/components/workoutform.js",
+  "/components/Loginform": "pages/components/Loginform.js",
+  "/components/dashboard": "pages/components/dashboard.js",
   "/components/clientform": "pages/components/clientform.js"
 }

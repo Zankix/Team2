@@ -30,7 +30,7 @@ export default function Clientdata() {
     
     const displayClients = async () => {
         try{
-            const result = await pb.collection('clients').getFullList(200, {sort: '-created'})
+            const result = await pb.collection('clients').getFullList(200, { '$autoCancel': false })
             setClients(result);
             console.log('Clients found: ', result);
         } catch (err) {
