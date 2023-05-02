@@ -63,11 +63,7 @@ export default function Table() {
               <td>{workout.workoutname}</td>
               <td>{workout.workoutdescription}</td>
               <td>{workout.workoutfocus}</td>
-              <td>
-  {getClientEmails(workout.clients).map((email) => (
-    <div key={email}>{email}</div>
-  ))}
-</td>
+              <td>{getClientEmails(workout.clients).map((email) => (<div key={email}>{email}</div> ))}</td>
               <td>{workout.workoutdate}</td>
             </tr>
           ))}

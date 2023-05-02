@@ -116,11 +116,11 @@ const EditWorkout = () => {
                 {editableRowId === index ? (
                   <input
                     type="select"
-                    id={`clients-${clients.id}`}
-                    defaultValue={clients.email}
+                    id={`clients-${workout.clients.id}`}
+                    defaultValue={workout.clients.email}
                   />
                 ) : (
-                  clients.email
+                  workout.clients.email
                 )}
               </td>
               <td>
