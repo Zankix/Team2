@@ -3,7 +3,6 @@ import PocketBase from 'pocketbase';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Workoutdata from './Workoutdata'
-import SearchHandler from '../pagecomponents/SearchHandler';
 const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
 
 const DeleteWorkout = () => {
@@ -62,7 +61,6 @@ const DeleteWorkout = () => {
     <div>
       <Topbar></Topbar>
       <h1 className="h1 titles">Delete Workouts</h1>
-      <SearchHandler></SearchHandler>
       <table className="table my-table">
         <thead>
           <tr>
