@@ -41,7 +41,7 @@ export default function Table() {
   const getClientEmails = (clientIds) => {
     return clientIds.map((id) => {
       const client = clients.find((c) => c.id === id);
-      return client ? client.email : '';
+      return { id: id, email: client ? client.email : '' };
     });
   };
 
@@ -63,7 +63,7 @@ export default function Table() {
               <td>{workout.workoutname}</td>
               <td>{workout.workoutdescription}</td>
               <td>{workout.workoutfocus}</td>
-              <td>{getClientEmails(workout.clients).map((email) => (<div key={email}>{email}</div> ))}</td>
+              <td>{getClientEmails(workout.clients).map(({ id, email }) => (<div key={id}>{email}</div> ))}</td>
               <td>{workout.workoutdate}</td>
             </tr>
           ))}

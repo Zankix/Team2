@@ -12,11 +12,12 @@ const EditClient = () => {
   const [editClient, setEditClient] = useState({
     firstname: '',
     lastname: '',
+    phonenumber: '',
+    email: '',
     age: '',
     height: '',
     weight: '',
-    phonenumber: '',
-    email: '',
+  
   });
 
   const handleEditClient = async (clientId, data) => {
@@ -38,13 +39,13 @@ const EditClient = () => {
 
     handleEditClient(clientId, {
       ...clientToUpdate,
-      firstname: editClient.firstname,
-      lastname: editClient.lastname,
-      age: editClient.age,
-      height: editClient.height,
-      weight: editClient.weight,
-      phonenumber: editClient.phonenumber,
-      email: editClient.email,
+      firstname: '',
+      lastname: '',
+      age: '',
+      height: '',
+      weight: '',
+      phonenumber: '',
+      email: ''
     });
 
     setEditableRowId(null);
@@ -52,31 +53,33 @@ const EditClient = () => {
 
   const displayClients = async () => {
     try {
-      const result = await pb.collection('clients').getFullList(200, { sort: '-created' });
+      const result = await pb.collection('clients').getFullList(200, { '$autoCancel': false });
       setClients(result);
       console.log('Clients found: ', result);
     } catch (err) {
-      console.error('Error fetching clients: ', err);
+      console.error('Error fetching workouts: ', err);
     }
   };
 
   useEffect(() => {
-    displayClients();
+    const fetchClients = async () => {
+      await displayClients();
+    };
+    fetchClients();
   }, []);
 
   return (
     <div>
       <Topbar />
       <button onClick={() => router.back()}>Back</button>
-  
       <table className="table my-table">
         <thead>
           <tr>
              <th>First Name</th>
               <th>Last Name</th>
-              <th>Age</th>  
               <th>Email</th>
               <th>Phonenumber</th>
+              <th>Age</th>  
               <th>Height</th>
               <th>Weight</th>   
               <th>Actions</th>
@@ -87,77 +90,50 @@ const EditClient = () => {
             <tr key={client.id}>
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="text"
-                    id={`firsttname-${client.id}`}
-                    defaultValue={client.firstname}
-                  />
+                  <input type="text" id={`firsttname-${client.id}`} defaultValue={client.firstname}/>
                 ) : (
                   client.firstname
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="text"
-                    id={`lastname-${client.id}`}
-                    defaultValue={client.lastname}
-                  />
+                  <input type="text" id={`lastname-${client.id}`} defaultValue={client.lastname}/>
                 ) : (
                   client.lastname
                 )}
               </td>
+              
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="number"
-                    id={`age-${client.id}`}
-                    defaultValue={client.age}
-                  />
-                ) : (
-                  client.age
-                )}
-              </td>
-              <td>
-                {editableRowId === index ? (
-                  <input
-                    type="text"
-                    id={`email-${client.id}`}
-                    defaultValue={client.email}
-                  />
+                  <input type="text" id={`email-${client.id}`} defaultValue={client.email}/>
                 ) : (
                   client.email
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="number"
-                    id={`phonenumber-${client.id}`}
-                    defaultValue={client.phonenumber}
-                  />
+                  <input type="text" id={`phonenumber-${client.id}`} defaultValue={client.phonenumber}/>
                 ) : (
                   client.phonenumber
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="number"
-                    id={`height-${client.id}`}
-                    defaultValue={client.height}
-                  />
+                  <input type="number" id={`age-${client.id}`} defaultValue={Number(client.age)} onChange={(e) => setEditClient({...editClient, age: Number(e.target.value)})}/>
+                  ) : (
+                  client.age
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <input type="number" id={`height-${client.id}`} defaultValue={client.height}/>
                 ) : (
                   client.height
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="number"
-                    id={`weight-${client.id}`}
-                    defaultValue={client.weight}
-                  />
+                  <input type="number" id={`weight-${client.id}`} defaultValue={client.weight}/>
                 ) : (
                   client.weight
                 )}

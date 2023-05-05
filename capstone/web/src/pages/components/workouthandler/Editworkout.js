@@ -8,12 +8,13 @@ const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
 const EditWorkout = () => {
   const router = useRouter();
   const [workouts, setWorkouts] = useState([]);
+  const [clients, setClients] = useState([]);
   const [editableRowId, setEditableRowId] = useState(null);
   const [editWorkout, setEditWorkout] = useState({
     workoutname: '',
     workoutdescription: '',
     workoutfocus: '',
-    clients:'',
+    clients:[],
     workoutdate: '',
   });
 
@@ -47,7 +48,7 @@ const EditWorkout = () => {
 
   const displayWorkouts = async () => {
     try {
-      const result = await pb.collection('workouts').getFullList(200, { sort: '-created' });
+      const result = await pb.collection('workouts').getFullList(200, { '$autoCancel': false });
       setWorkouts(result);
       console.log('Workouts found: ', result);
     } catch (err) {
@@ -55,8 +56,25 @@ const EditWorkout = () => {
     }
   };
 
+  const displayClients = async () => {
+    try {
+      const result = await pb.collection('clients').getFullList(200, { '$autoCancel': false });
+      setClients(result);
+      console.log('Clients found: ', result);
+    } catch (err) {
+      console.error('Error fetching clients: ', err);
+    }
+  };
+
   useEffect(() => {
-    displayWorkouts();
+    const fetchWorkouts = async () => {
+      await displayWorkouts();
+    };
+    const fetchClients = async () => {
+      await displayClients();
+    };
+    fetchWorkouts();
+    fetchClients();
   }, []);
 
   return (
@@ -114,11 +132,17 @@ const EditWorkout = () => {
               {/* clients dropdown select*/}
               <td>
                 {editableRowId === index ? (
-                  <input
-                    type="select"
+                  <select
                     id={`clients-${workout.clients.id}`}
                     defaultValue={workout.clients.email}
-                  />
+                  >
+                    <option value="">Select a client</option>
+                    {clients.map((client) => (
+                      <option key={client.id} value={client.email}>
+                        {client.email}
+                      </option>
+                    ))}
+                  </select>
                 ) : (
                   workout.clients.email
                 )}
