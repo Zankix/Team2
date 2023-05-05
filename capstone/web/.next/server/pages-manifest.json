@@ -2,9 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/components/workoutform": "pages/components/workoutform.js",
-  "/components/clientform": "pages/components/clientform.js",
-  "/components/workouthandler/Deleteworkout": "pages/components/workouthandler/Deleteworkout.js",
-  "/components/dashboard": "pages/components/dashboard.js",
-  "/components/workouthandler/Editworkout": "pages/components/workouthandler/Editworkout.js"
+  "/components/Signupform": "pages/components/Signupform.js",
+  "/": "pages/index.js",
+  "/components/Loginform": "pages/components/Loginform.js",
+  "/components/About": "pages/components/About.js"
 }

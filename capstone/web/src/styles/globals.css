@@ -132,7 +132,7 @@ div [name = front-background]{
   #32cd32, #87cefa, #4169e1, #8b008b, #9400d3, 
   #ff00ff, #ff69b4);
   background-image: url("../styles/fit\ background.gif"); 
-  animation: slideshow 30s infinite;
+  animation: slideshow 20s infinite;
   background-repeat: no-repeat;
 background-size: cover;
 }
@@ -141,20 +141,14 @@ background-size: cover;
   0% {
     background-image: url("../styles/fit\ background.gif"); 
   }
-  16% {
-    background-image: url("../styles/fit\ background2.gif"); 
-  }
   32% {
     background-image: url("../styles/fit\ background3.gif"); 
   }
-  48% {
+  60% {
     background-image: url("../styles/fit\ background4.gif"); 
   }
-  62% {
+  75% {
     background-image: url("../styles/fit\ background5.gif"); 
-  }
-  80% {
-    background-image: url("../styles/fit\ background6.gif"); 
   }
 }
 
