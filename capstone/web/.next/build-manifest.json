@@ -25,25 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/components/clientform": [
+    "/components/workouthandler/Deleteworkout": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/components/clientform.js"
-    ],
-    "/components/dashboard": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/components/dashboard.js"
-    ],
-    "/components/workoutform": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/components/workoutform.js"
-    ],
-    "/components/workouthandler/Editworkout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/components/workouthandler/Editworkout.js"
+      "static/chunks/pages/components/workouthandler/Deleteworkout.js"
     ]
   },
   "ampFirstPages": []

@@ -50,9 +50,10 @@ export default function Addclient() {
     <div>
     <Topbar></Topbar>
     <button onClick={() => router.back()}>Back</button>
+    <h1 className="h1 titles">Clients</h1>
     <Clientdata></Clientdata>
       <div name='addclient'>
-        <h1>ADD CLIENT</h1>
+        <h1>Add Client</h1>
         <label htmlFor="clientfirstname">First Name:</label>
         <input type='text' name='firstname' placeholder='Enter First name' onChange={e => setfirstname(e.target.value)} id='clientfirstname'/>
         <label htmlFor="clientlastname">Last Name:</label>

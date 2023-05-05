@@ -12,9 +12,6 @@ export default function WorkoutForm() {
       <h1 className="h1 titles">Current Workouts</h1>
       <Workoutdata></Workoutdata>
       <div name='client'>
-        <button className="button button-mainpages" onClick={() => window.location.href = '../components/workouthandler/Addworkout'}>Add Workout</button>
-        <button className="button button-mainpages" onClick={() => window.location.href = '../components/workouthandler/Editworkout'}>Edit Workout</button>
-        <button className="button button-mainpages" onClick={() => window.location.href = '../components/workouthandler/Deleteworkout'}>Delete Workout</button>
       </div>
     </div>
   );

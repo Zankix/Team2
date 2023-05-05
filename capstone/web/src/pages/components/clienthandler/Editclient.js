@@ -72,6 +72,7 @@ const EditClient = () => {
     <div>
       <Topbar />
       <button onClick={() => router.back()}>Back</button>
+      <h1 className="h1 titles">Edit Clients</h1>
       <table className="table my-table">
         <thead>
           <tr>
