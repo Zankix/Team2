@@ -1,6 +1,6 @@
 # Team2
 
-## version 0.8 of FIT
+## version 1.0 of FIT
 
 version notes:
 
@@ -20,11 +20,14 @@ using (nvm install 19.5.0)
 3. Install required packages using (npm i) command
    - this will install all packages that are being used in this applicattion
 4. Run web server using (npm run dev) command
-5. Open browser and type [http://localhost:3000/]
+5. Open browser and enter the url [http://localhost:3000/]
 
 6. open another terminal
 7. cd into pocketbase folder (cd pb)
 8. Run pocketbase server
    - Windows (./pocketbaseWindows serve)
+   OR
    - Mac (./pocketbase serve)
 9. click on the link in terminal with ADMIN UI
+
+10. create FIT account and/or login
