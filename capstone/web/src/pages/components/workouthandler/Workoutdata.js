@@ -50,7 +50,7 @@ export default function Table() {
       <table className="table my-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Workout Name</th>
             <th>Description</th>
             <th>Focus</th>
             <th>Clients</th>
