@@ -56,7 +56,7 @@ const DeleteWorkout = () => {
         return { id: id, email: client ? client.email : '' };
       });
     };
-    
+
   return (
     <div>
       <Topbar></Topbar>
@@ -64,7 +64,7 @@ const DeleteWorkout = () => {
       <table className="table my-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Workout Name</th>
             <th>Description</th>
             <th>Focus</th>
             <th>Clients</th>

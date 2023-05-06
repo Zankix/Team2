@@ -22,34 +22,39 @@ const EditClient = () => {
 
   const handleEditClient = async (clientId, data) => {
     try {
-      const result = await pb.collection('clients').update(clientId, data);
-      const index = clients.findIndex((client) => client.id === clientId);
-      const updatedClients = [...clients];
-      updatedClients[index] = result;
+      const updatedClient = await pb.collection('clients').update(clientId, data);
+      const updatedClients = clients.map((client) => client.id === updatedClient.id ? updatedClient : client);
       setClients(updatedClients);
       console.log(`Client with ID ${clientId} updated successfully.`);
     } catch (err) {
       console.error(`Error updating client with ID ${clientId}: ${err}`);
     }
   };
+  
 
-  const handleSaveClient = (clientId) => {
+  const handleSaveClient = async (clientId) => {
     const index = clients.findIndex((client) => client.id === clientId);
     const clientToUpdate = clients[index];
-
-    handleEditClient(clientId, {
-      ...clientToUpdate,
-      firstname: '',
-      lastname: '',
-      age: '',
-      height: '',
-      weight: '',
-      phonenumber: '',
-      email: ''
-    });
-
-    setEditableRowId(null);
+  
+    try {
+      await handleEditClient(clientId, {
+        ...clientToUpdate,
+        firstname: editClient.firstname || clientToUpdate.firstname,
+        lastname: editClient.lastname || clientToUpdate.lastname,
+        phonenumber: editClient.phonenumber || clientToUpdate.phonenumber,
+        email: editClient.email || clientToUpdate.email,
+        age: editClient.age || clientToUpdate.age,
+        height: editClient.height || clientToUpdate.height,
+        weight: editClient.weight || clientToUpdate.weight,
+      });
+  
+      setEditableRowId(null);
+      console.log(`Client with ID ${clientId} updated successfully.`);
+    } catch (err) {
+      console.error(`Error updating client with ID ${clientId}: ${err}`);
+    }
   };
+  
 
   const displayClients = async () => {
     try {
@@ -91,14 +96,14 @@ const EditClient = () => {
             <tr key={client.id}>
               <td>
                 {editableRowId === index ? (
-                  <input type="text" id={`firsttname-${client.id}`} defaultValue={client.firstname}/>
+                  <input type="text" id={`firsttname-${client.id}`} defaultValue={client.firstname} onChange={(e) => setEditClient({...editClient, firstname: e.target.value})}/>
                 ) : (
                   client.firstname
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input type="text" id={`lastname-${client.id}`} defaultValue={client.lastname}/>
+                  <input type="text" id={`lastname-${client.id}`} defaultValue={client.lastname} onChange={(e) => setEditClient({...editClient, lastname: e.target.value})}/>
                 ) : (
                   client.lastname
                 )}
@@ -106,14 +111,14 @@ const EditClient = () => {
               
               <td>
                 {editableRowId === index ? (
-                  <input type="text" id={`email-${client.id}`} defaultValue={client.email}/>
+                  <input type="text" id={`email-${client.id}`} defaultValue={client.email} onChange={(e) => setEditClient({...editClient, email: e.target.value})}/>
                 ) : (
                   client.email
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input type="text" id={`phonenumber-${client.id}`} defaultValue={client.phonenumber}/>
+                  <input type="text" id={`phonenumber-${client.id}`} defaultValue={client.phonenumber} onChange={(e) => setEditClient({...editClient, phonenumber: e.target.value})}/>
                 ) : (
                   client.phonenumber
                 )}
@@ -127,14 +132,14 @@ const EditClient = () => {
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input type="number" id={`height-${client.id}`} defaultValue={client.height}/>
+                  <input type="number" id={`height-${client.id}`} defaultValue={client.height} onChange={(e) => setEditClient({...editClient, height: e.target.value})}/>
                 ) : (
                   client.height
                 )}
               </td>
               <td>
                 {editableRowId === index ? (
-                  <input type="number" id={`weight-${client.id}`} defaultValue={client.weight}/>
+                  <input type="number" id={`weight-${client.id}`} defaultValue={client.weight} onChange={(e) => setEditClient({...editClient, weight: e.target.value})}/>
                 ) : (
                   client.weight
                 )}
@@ -152,5 +157,6 @@ const EditClient = () => {
       </table>
     </div>
   );
+  
 }
 export default EditClient  

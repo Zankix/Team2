@@ -76,6 +76,7 @@ export default function Addworkout() {
         </label>
         <br></br>
         <div>
+
           <label>Clients:</label>
           {selectedClients.map((selectedClient, index) => (
             <div key={selectedClient?.id || index}>
@@ -94,6 +95,7 @@ export default function Addworkout() {
             </div>
           ))}
         </div>
+
         <br></br>
         <label>
           Workout Date:
