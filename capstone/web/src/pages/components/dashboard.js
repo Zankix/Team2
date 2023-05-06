@@ -8,26 +8,17 @@ function dashboard() {
     <div >
         <Topbar></Topbar>
         <div name = 'home'>
-<<<<<<< HEAD
-            <img src="/fitt.png"></img>
-=======
             
->>>>>>> main
           <h1>Welcome to FIT!</h1> 
-         
+          
         </div>
  
         <h1 className='h1 titles'>Current Workouts</h1>
-        
-        
         <Workoutdata></Workoutdata>
         <h1 className='h1 titles'>Clients</h1>
         <Clientdata></Clientdata>
     </div>
-
   );
 }
-
-
 
 export default dashboard;
