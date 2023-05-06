@@ -1,8 +1,8 @@
 import Topbar from '../pagecomponents/Topbar'
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
+const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 10000 });
 const Deleteclient = () => {
     const router = useRouter();
     const [clients, setClients] = useState([]);
@@ -19,30 +19,35 @@ const Deleteclient = () => {
   
     const displayClients = async () => {
       try {
-        const result = await pb.collection('clients').getFullList(200, { sort: '-created' });
+        const result = await pb.collection('clients').getFullList(200, { '$autoCancel': false });
         setClients(result);
-        console.log('Clients found: ', result);
+        console.log('Workouts found: ', result);
       } catch (err) {
-        console.error('Error fetching records: ', err);
+        console.error('Error fetching workouts: ', err);
       }
     };
-  
+    
     useEffect(() => {
-      displayClients();
+      const fetchClients = async () => {
+        await displayClients();
+      };
+      fetchClients();
     }, []);
+    
 
   return (
     <div>
       <Topbar></Topbar>
       <button onClick={() => router.back()}>Back</button>
       <h1>Clients</h1>
-      <table>
+      <table className='table my-table'>
         <thead>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone Number</th>
+            <th>Age</th>
             <th>Height</th>
             <th>Weight</th>
             <th>Actions</th>
@@ -55,6 +60,7 @@ const Deleteclient = () => {
               <td>{client.lastname}</td>
               <td>{client.email}</td>
               <td>{client.phonenumber}</td>
+              <td>{client.age}</td>
               <td>{client.height}</td>
               <td>{client.weight}</td>
               <td>

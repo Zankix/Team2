@@ -1,150 +1,161 @@
-import React, { useEffect, useState } from 'react'
-import Topbar from '../pagecomponents/Topbar'
-import { useRouter } from 'next/router';
+import Topbar from '../pagecomponents/Topbar';
 import PocketBase from 'pocketbase';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+
 const pb = new PocketBase('http://127.0.0.1:8090', { timeout: 5000 });
-const Editclient = () => {
+
+const EditClient = () => {
+  const router = useRouter();
   const [clients, setClients] = useState([]);
-    const router = useRouter();
-    const displayClients = async () => {
-      try{
-          const result = await pb.collection('clients').getFullList(200, {sort: '-created'})
-          setClients(result);
-          console.log('Clients found: ', result);
-      } catch (err) {
-          console.error('Error fetching records: ', err);
-      }
+  const [editableRowId, setEditableRowId] = useState(null);
+  const [editClient, setEditClient] = useState({
+    firstname: '',
+    lastname: '',
+    phonenumber: '',
+    email: '',
+    age: '',
+    height: '',
+    weight: '',
+  
+  });
+
+  const handleEditClient = async (clientId, data) => {
+    try {
+      const updatedClient = await pb.collection('clients').update(clientId, data);
+      const updatedClients = clients.map((client) => client.id === updatedClient.id ? updatedClient : client);
+      setClients(updatedClients);
+      console.log(`Client with ID ${clientId} updated successfully.`);
+    } catch (err) {
+      console.error(`Error updating client with ID ${clientId}: ${err}`);
+    }
   };
+  
+
+  const handleSaveClient = async (clientId) => {
+    const index = clients.findIndex((client) => client.id === clientId);
+    const clientToUpdate = clients[index];
+  
+    try {
+      await handleEditClient(clientId, {
+        ...clientToUpdate,
+        firstname: editClient.firstname || clientToUpdate.firstname,
+        lastname: editClient.lastname || clientToUpdate.lastname,
+        phonenumber: editClient.phonenumber || clientToUpdate.phonenumber,
+        email: editClient.email || clientToUpdate.email,
+        age: editClient.age || clientToUpdate.age,
+        height: editClient.height || clientToUpdate.height,
+        weight: editClient.weight || clientToUpdate.weight,
+      });
+  
+      setEditableRowId(null);
+      console.log(`Client with ID ${clientId} updated successfully.`);
+    } catch (err) {
+      console.error(`Error updating client with ID ${clientId}: ${err}`);
+    }
+  };
+  
+
+  const displayClients = async () => {
+    try {
+      const result = await pb.collection('clients').getFullList(200, { '$autoCancel': false });
+      setClients(result);
+      console.log('Clients found: ', result);
+    } catch (err) {
+      console.error('Error fetching workouts: ', err);
+    }
+  };
+
   useEffect(() => {
-      displayClients();
+    const fetchClients = async () => {
+      await displayClients();
+    };
+    fetchClients();
   }, []);
+
   return (
     <div>
-      <Topbar></Topbar>
+      <Topbar />
       <button onClick={() => router.back()}>Back</button>
-      <h1>Clients</h1>
-      <table>
+      <table className="table my-table">
         <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phonenumber</th>
-                <th>Height</th>
-                <th>Weight</th>
-            </tr>
+          <tr>
+             <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phonenumber</th>
+              <th>Age</th>  
+              <th>Height</th>
+              <th>Weight</th>   
+              <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
-            {clients.map(client => (
-                <tr key={client.id}>
-                    <td>
-                      <input
-                        type="text"
-                        value={client.firstname}
-                        onChange={e => {
-                          const updatedClient = { ...client, firstname: e.target.value };
-                          setClients(clients.map(c => (c.id === client.id ? updatedClient : c)));
-                        }}
-                        onBlur={async () => {
-                          try {
-                            await pb.collection('clients').update(client.id, { firstname: client.firstname });
-                          } catch (err) {
-                            console.error('Error updating record:', err);
-                          }
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={client.lastname}
-                        onChange={e => {
-                          const updatedClient = { ...client, lastname: e.target.value };
-                          setClients(clients.map(c => (c.id === client.id ? updatedClient : c)));
-                        }}
-                        onBlur={async () => {
-                          try {
-                            await pb.collection('clients').update(client.id, { lastname: client.lastname });
-                          } catch (err) {
-                            console.error('Error updating record:', err);
-                          }
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={client.email}
-                        onChange={e => {
-                          const updatedClient = { ...client, email: e.target.value };
-                          setClients(clients.map(c => (c.id === client.id ? updatedClient : c)));
-                        }}
-                        onBlur={async () => {
-                          try {
-                            await pb.collection('clients').update(client.id, { email: client.email });
-                          } catch (err) {
-                            console.error('Error updating record:', err);
-                          }
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={client.phonenumber}
-                        onChange={e => {
-                          const updatedClient = { ...client, phonenumber: e.target.value };
-                          setClients(clients.map(c => (c.id === client.id ? updatedClient : c)));
-                        }}
-                        onBlur={async () => {
-                          try {
-                            await pb.collection('clients').update(client.id, { phonenumber: client.phonenumber });
-                          } catch (err) {
-                            console.error('Error updating record:', err);
-                          }
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={client.height}
-                        onChange={e => {
-                          const updatedClient = { ...client, height: e.target.value };
-                          setClients(clients.map(c => (c.id === client.id ? updatedClient : c)));
-                        }}
-                        onBlur={async () => {
-                          try {
-                            await pb.collection('clients').update(client.id, { height: client.height });
-                          } catch (err) {
-                            console.error('Error updating record:', err);
-                          }
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={client.weight}
-                        onChange={e => {
-                          const updatedClient = { ...client, weight: e.target.value };
-                          setClients(clients.map(c => (c.id === client.id ? updatedClient : c)));
-                        }}
-                        onBlur={async () => {
-                          try {
-                            await pb.collection('clients').update(client.id, { weight: client.weight });
-                          } catch (err) {
-                            console.error('Error updating record:', err);
-                          }
-                        }}
-                      />
-                    </td>
-                </tr>
-            ))}
+          {clients.map((client, index) => (
+            <tr key={client.id}>
+              <td>
+                {editableRowId === index ? (
+                  <input type="text" id={`firsttname-${client.id}`} defaultValue={client.firstname} onChange={(e) => setEditClient({...editClient, firstname: e.target.value})}/>
+                ) : (
+                  client.firstname
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <input type="text" id={`lastname-${client.id}`} defaultValue={client.lastname} onChange={(e) => setEditClient({...editClient, lastname: e.target.value})}/>
+                ) : (
+                  client.lastname
+                )}
+              </td>
+              
+              <td>
+                {editableRowId === index ? (
+                  <input type="text" id={`email-${client.id}`} defaultValue={client.email} onChange={(e) => setEditClient({...editClient, email: e.target.value})}/>
+                ) : (
+                  client.email
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <input type="text" id={`phonenumber-${client.id}`} defaultValue={client.phonenumber} onChange={(e) => setEditClient({...editClient, phonenumber: e.target.value})}/>
+                ) : (
+                  client.phonenumber
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <input type="number" id={`age-${client.id}`} defaultValue={Number(client.age)} onChange={(e) => setEditClient({...editClient, age: Number(e.target.value)})}/>
+                  ) : (
+                  client.age
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <input type="number" id={`height-${client.id}`} defaultValue={client.height} onChange={(e) => setEditClient({...editClient, height: e.target.value})}/>
+                ) : (
+                  client.height
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <input type="number" id={`weight-${client.id}`} defaultValue={client.weight} onChange={(e) => setEditClient({...editClient, weight: e.target.value})}/>
+                ) : (
+                  client.weight
+                )}
+              </td>
+              <td>
+                {editableRowId === index ? (
+                  <button onClick={() => handleSaveClient(client.id)}>Submit</button>
+                ) : (
+                  <button onClick={() => setEditableRowId(index)}>Edit</button>
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
-  )
+  );
+  
 }
-
-export default Editclient
+export default EditClient  
