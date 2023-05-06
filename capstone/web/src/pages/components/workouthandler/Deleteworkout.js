@@ -60,7 +60,8 @@ const DeleteWorkout = () => {
   return (
     <div>
       <Topbar></Topbar>
-      <button onClick={() => router.back()}>Back</button>
+      <h1 className='h1 titles'>Delete Workouts</h1>
+
 
       <table className="table my-table">
         <thead>

@@ -99,8 +99,9 @@ const EditWorkout = () => {
 
   return (
     <div>
+     
       <Topbar />
-      <button onClick={() => router.back()}>Back</button>
+      <h1 className='h1 titles'>Edit Workouts</h1>
       <table className='table my-table'>
         <thead>
           <tr>
@@ -143,7 +144,7 @@ const EditWorkout = () => {
                         //const client = clients.find((client) => client.id === selectedClient);
                         return (
                           <div key={selectedClient?.id || clientIndex}>
-                            <select value={selectedClient || ''}  onChange={(e) => handleClientChange(clientIndex, e.target.value)}>
+                            <select value={selectedClient || ''}  onChange={e => handleClientChange(clientIndex, e.target.value)}>
                               <option value="">Select a client</option>
                               {clients.map((client) => (
                                 <option key={client.id} value={client.id}>{client.email}</option>

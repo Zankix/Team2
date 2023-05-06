@@ -49,7 +49,8 @@ export default function Addclient() {
   return (
     <div>
     <Topbar></Topbar>
-    <button onClick={() => router.back()}>Back</button>
+    <h1 className='h1 titles'>Add Clients</h1>
+
     <Clientdata></Clientdata>
       <div name='addclient'>
         <h1>ADD CLIENT</h1>
